@@ -23,15 +23,15 @@ In this challenge you will write tests with Cypress to debug your forms app from
 
 This project is a continuation of the work you have done previously.
 
-- [ ] CD into your old project
-- [ ] Continue to make changes and push to the same branch
-- [ ] Install Cypress with npm.
+- [done] CD into your old project
+- [done] Continue to make changes and push to the same branch
+- [done] Install Cypress with npm.
       `npm install cypress --save-dev`
-- [ ] run `npx cypress open`, After a moment, the Cypress Test Runner will launch.
-- [ ]  Locate the integration folder at cypress/integration in your code editor
-- [ ]  Create a form_test.js file.
-- [ ]  Watch the Cypress Test Runner update the list of specs.
-- [ ] Launch Cypress in interactive mode.
+- [done] run `npx cypress open`, After a moment, the Cypress Test Runner will launch.
+- [done]  Locate the integration folder at cypress/integration in your code editor
+- [done]  Create a form_test.js file.
+- [done]  Watch the Cypress Test Runner update the list of specs.
+- [done] Launch Cypress in interactive mode.
       
 *Note:* 
 You will see an error that says "No tests found in your file:" with your particular file path. This is because we have not written any tests yet. Now you will start writing tests.
@@ -42,13 +42,13 @@ In order to complete this challenge you will need to write and run the following
 
 Set up tests that will...
 
-- [ ]  Get the `Name` input and type a name in it.
-- [ ]  Use an assertion to check if the text inputted contains the name you provided (Hint: use the .should assertion)
-- [ ]  Get the `Email` input and type an email address in it
-- [ ] Get the `password` input and type a password in it
-- [ ]  Set up a test that will check to see if a user can check the terms of service box
-- [ ] Check to see if a user can submit the form data
-- [ ] Check for form validation if an input is left empty
+- [done]  Get the `Name` input and type a name in it.
+- [done]  Use an assertion to check if the text inputted contains the name you provided (Hint: use the .should assertion)
+- [done]  Get the `Email` input and type an email address in it
+- [done] Get the `password` input and type a password in it
+- [done]  Set up a test that will check to see if a user can check the terms of service box
+- [done] Check to see if a user can submit the form data
+- [done] Check for form validation if an input is left empty
 
 ### Step 3: Stretch Goals
 

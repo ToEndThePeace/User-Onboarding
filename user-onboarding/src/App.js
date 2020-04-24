@@ -54,7 +54,6 @@ const formSchema = yup.object().shape({
     .required("Password is required"),
   tosIsChecked: yup
     .boolean()
-    .oneOf([true], "You must accept Terms of Service")
     .required("Accepting Terms of Service is required")
 });
 
@@ -97,8 +96,9 @@ function App() {
   };
   const submitHandler = (event) => {
     event.preventDefault();
+    const curValues = formValues;
     axios
-      .post(url, formValues)
+      .post(url, curValues)
       .then((res) => {
         const { id, name, email, password } = res.data;
         setUsers([
