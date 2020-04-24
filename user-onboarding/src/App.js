@@ -54,6 +54,7 @@ const formSchema = yup.object().shape({
     .required("Password is required"),
   tosIsChecked: yup
     .boolean()
+    .oneOf([true], "ToS must be accepted")
     .required("Accepting Terms of Service is required")
 });
 
@@ -62,7 +63,7 @@ function App() {
   const [users, setUsers] = useState([]);
 
   // Form State and Handlers
-  const [formValues, setFormValues] = useState({});
+  const [formValues, setFormValues] = useState(initialFormData);
   const [submitDisabled, setSubmitDisabled] = useState(false);
   const inputChange = (event) => {
     const { name, value } = event.target;
@@ -89,9 +90,25 @@ function App() {
     });
   };
   const checkboxChange = (event) => {
+    const { name, checked } = event.target;
+    yup
+      .reach(formSchema, `${name}IsChecked`)
+      .validate(checked)
+      .then((valid) => {
+        setFormErrors({
+          ...formErrors,
+          [`${name}IsChecked`]: ""
+        });
+      })
+      .catch((err) => {
+        setFormErrors({
+          ...formErrors,
+          [`${name}IsChecked`]: err.errors[0]
+        });
+      });
     setFormValues({
       ...formValues,
-      [`${event.target.name}IsChecked`]: event.target.checked
+      [`${name}IsChecked`]: checked
     });
   };
   const submitHandler = (event) => {
@@ -119,13 +136,10 @@ function App() {
   // Form Error Handling
   const [formErrors, setFormErrors] = useState({});
 
-  // API Calls
-
   // Effect Hooks
   useEffect(() => {
     setSubmitDisabled(true);
     setUsers(initialUsers);
-    setFormValues(initialFormData);
     setFormErrors(initialFormErrors);
   }, []);
   useEffect(() => {
@@ -152,6 +166,9 @@ function App() {
 const StyledApp = styled.div`
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
 `;
 
 export default App;

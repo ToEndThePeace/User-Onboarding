@@ -17,5 +17,10 @@ export default function UserList(props) {
 }
 
 const StyledList = styled.div`
-
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+  align-items: flex-start;
+  padding: 20px;
+  flex-grow: 1;
 `;
